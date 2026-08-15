@@ -177,7 +177,7 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="+1 (555) 000-0000"
+            placeholder="+91 99999 99999"
             className="w-full bg-[#000000] border border-slate-800 focus:border-brand-blue rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-colors"
           />
         </div>
@@ -210,24 +210,7 @@ export default function ContactForm() {
         </div>
 
         {/* Project Budget Dropdown */}
-        <div>
-          <label htmlFor="budget" className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-            Estimated Budget
-          </label>
-          <select
-            id="budget"
-            name="budget"
-            value={formData.budget}
-            onChange={handleChange}
-            className="w-full bg-[#000000] border border-slate-800 focus:border-brand-blue rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-colors"
-          >
-            <option value="Under $5,000">Under $5,000</option>
-            <option value="$5,000 - $10,000">$5,000 - $10,000</option>
-            <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-            <option value="$25,000 - $50,000">$25,000 - $50,000</option>
-            <option value="$50,000+">$50,000+</option>
-          </select>
-        </div>
+        
       </div>
 
       {/* Description */}
