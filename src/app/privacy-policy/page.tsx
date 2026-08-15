@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-3">
             <h2 className="text-lg font-bold text-white font-jakarta">5. Contact Us</h2>
             <p>
-              If you have any questions regarding our privacy practices, please contact us at <a href="mailto:hrlucid8@gmail.com" className="text-brand-cyan hover:underline">hrlucid8@gmail.com</a>.
+              If you have any questions regarding our privacy practices, please contact us at <a href="mailto:lucid8global@gmail.com" className="text-brand-cyan hover:underline">lucid8global@gmail.com</a>.
             </p>
           </section>
         </div>

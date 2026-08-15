@@ -230,7 +230,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-brand-white to-brand-cyan hover:opacity-95 hover:shadow-lg hover:shadow-brand-white/20 transition-all duration-300"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-brand-black to-brand-cyan hover:opacity-95 hover:shadow-lg hover:shadow-brand-white/20 transition-all duration-300"
             >
               Talk to an Expert
             </Link>
@@ -325,7 +325,7 @@ export default function Navbar() {
           <div className="pt-4 border-t border-slate-800">
             <Link
               href="/contact"
-              className="block w-full text-center px-4 py-3 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-brand-white to-brand-cyan hover:opacity-95 shadow-md shadow-brand-white/10"
+              className="block w-full text-center px-4 py-3 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-brand-black to-brand-cyan hover:opacity-95 shadow-md shadow-brand-white/10"
             >
               Talk to an Expert
             </Link>

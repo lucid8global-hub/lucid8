@@ -79,7 +79,7 @@ export default function ContactPage() {
                   </p>
                   <div>
                     <a
-                      href="mailto:hrlucid8@gmail.com?subject=Project%20Inquiry%20to%20Lucid8%20Technologies"
+                      href="mailto:lucid8global@gmail.com?subject=Project%20Inquiry%20to%20Lucid8%20Technologies"
                       className="text-xs font-bold text-brand-blue hover:text-brand-cyan transition-colors flex items-center"
                     >
                       <span>Send an Email</span>

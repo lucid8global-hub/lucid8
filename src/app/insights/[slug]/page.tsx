@@ -472,7 +472,7 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
           </div>
           <Link
             href="/contact"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-brand-white to-brand-white hover:opacity-95 transition-all flex-shrink-0"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-brand-black to-brand-white hover:opacity-95 transition-all flex-shrink-0"
           >
             Talk to an Expert
             <ArrowRight className="w-4 h-4 ml-2" />

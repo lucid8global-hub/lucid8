@@ -108,7 +108,7 @@ export default function CareersPage() {
 
                 <div className="flex-shrink-0">
                   <a
-                    href="mailto:hrlucid8@gmail.com?subject=Application%20for%20Position%3A%20Senior%20Full-Stack%2520Developer"
+                    href="mailto:lucid8global@gmail.com?subject=Application%20for%20Position%3A%20Senior%20Full-Stack%2520Developer"
                     className="inline-flex items-center justify-center px-5 py-2.5 bg-slate-900 border border-slate-800 text-xs font-bold text-slate-200 hover:text-white rounded-lg transition-colors group"
                   >
                     <span>Apply via Email</span>
@@ -124,7 +124,7 @@ export default function CareersPage() {
         <div className="mt-12 p-8 bg-[#0a0a0a]/20 border border-slate-850 rounded-2xl text-center space-y-4 max-w-3xl mx-auto">
           <h3 className="text-lg font-bold text-white font-jakarta">Don't see a matching position?</h3>
           <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            We are always looking for skilled developers, cybersecurity analysts, and quality engineers. Send your resume and technical profile to <a href="mailto:hrlucid8@gmail.com" className="text-brand-cyan hover:underline">hrlucid8@gmail.com</a>.
+            We are always looking for skilled developers, cybersecurity analysts, and quality engineers. Send your resume and technical profile to <a href="mailto:lucid8global@gmail.com" className="text-brand-cyan hover:underline">lucid8global@gmail.com</a>.
           </p>
         </div>
 
