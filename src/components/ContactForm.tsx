@@ -169,7 +169,7 @@ export default function ContactForm() {
         {/* Phone */}
         <div>
           <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-            Phone / Mobile
+            Phone / Mobile *
           </label>
           <input
             type="tel"
