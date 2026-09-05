@@ -23,8 +23,9 @@ export default function Footer() {
 
   const companyLinks = [
     { name: "About Us", href: "/about" },
-    { name: "Careers", href: "/careers" },
+    { name: "Projects & Portfolio", href: "/projects" },
     { name: "Case Studies", href: "/case-studies" },
+    { name: "Careers", href: "/careers" },
     { name: "Insights & Articles", href: "/insights" },
     { name: "Contact Expert", href: "/contact" },
   ];

@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { getAllProjects } from "../data/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://lucid8.in";
@@ -7,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/services",
+    "/projects",
     "/case-studies",
     "/insights",
     "/careers",
@@ -54,11 +56,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "ai-role-software-testing",
   ];
 
+  const projects = getAllProjects();
+
   const staticUrls = staticPages.map((page) => ({
     url: `${baseUrl}${page}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: page === "" ? 1.0 : 0.8,
+    priority: page === "" ? 1.0 : (page === "/projects" ? 0.85 : 0.8),
   }));
 
   const serviceUrls = servicesSlugs.map((slug) => ({
@@ -75,6 +79,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const projectUrls = projects.map((proj) => ({
+    url: `${baseUrl}/projects/${proj.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
   const caseUrls = caseStudiesSlugs.map((slug) => ({
     url: `${baseUrl}/case-studies/${slug}`,
     lastModified: new Date(),
@@ -89,5 +100,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticUrls, ...serviceUrls, ...industryUrls, ...caseUrls, ...insightUrls];
+  return [...staticUrls, ...serviceUrls, ...industryUrls, ...projectUrls, ...caseUrls, ...insightUrls];
 }

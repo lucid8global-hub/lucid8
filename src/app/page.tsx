@@ -2,9 +2,10 @@ import React from "react";
 import Link from "next/link";
 import { 
   ArrowRight, Shield, Cpu, Code, Database, Cloud, Terminal, 
-  Layers, Users, CheckCircle, Zap, Activity, BookOpen, MessageSquare 
+  Layers, Users, CheckCircle, Zap, Activity, BookOpen, MessageSquare, ExternalLink 
 } from "lucide-react";
 import ServiceCard from "../components/ServiceCard";
+import { getFeaturedProjects } from "../data/projects";
 
 // Real tech expertise categories
 const techExpertise = [
@@ -443,49 +444,93 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. SELECTED WORK / CASE STUDIES PLACEHOLDER */}
+      {/* 9. SELECTED WORK / PROJECTS */}
       <section className="py-24 bg-slate-950 border-t border-slate-800/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div className="space-y-3">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-cyan">Selected Projects</span>
-              <h2 className="text-3xl font-bold text-white font-jakarta">Proven Architectures</h2>
+              <h2 className="text-3xl font-bold text-white font-jakarta">Proven Architectures & Live Systems</h2>
             </div>
             <Link 
-              href="/case-studies"
+              href="/projects"
               className="text-sm font-semibold text-brand-cyan hover:underline flex items-center space-x-1"
             >
-              <span>Explore dynamic project case studies</span>
+              <span>Explore all {getFeaturedProjects().length}+ portfolio projects</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Secure Distributed Transaction Middleware",
-                sector: "Fintech & Middleware",
-                desc: "High throughput ledger database architectures designed for payment reconciliation with sub-second API roundtrips.",
-                techs: ["Java", "Spring Boot", "AWS Aurora", "Vulnerability Auditing"]
-              },
-              {
-                title: "Scalable Telehealth Scheduling Core",
-                sector: "Healthcare & HIPAA Systems",
-                desc: "A custom real-time booking, chat communication, and audio/video streaming engine compliant with modern privacy guidelines.",
-                techs: ["Next.js", "WebSockets", "Node.js API", "End-to-End Testing"]
-              }
-            ].map((proj, idx) => (
-              <div key={idx} className="bg-[#0a0a0a]/20 border border-slate-800/80 rounded-xl p-8 space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-500">{proj.sector}</span>
-                <h3 className="text-xl font-bold text-white font-jakarta">{proj.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{proj.desc}</p>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {proj.techs.map((t, tIdx) => (
-                    <span key={tIdx} className="bg-[#000000] border border-slate-800 px-2.5 py-1 rounded text-xs text-slate-300 font-mono">
-                      {t}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {getFeaturedProjects().map((proj) => (
+              <div 
+                key={proj.id} 
+                className="bg-[#0a0a0a]/40 border border-slate-800/80 rounded-2xl p-7 flex flex-col justify-between hover:border-brand-blue/40 transition-all duration-300 group"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-widest text-slate-500">{proj.sector}</span>
+                    <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-950/60 border border-emerald-800/50 px-2 py-0.5 rounded">
+                      {proj.status}
                     </span>
-                  ))}
+                  </div>
+                  <Link href={`/projects/${proj.slug}`}>
+                    <h3 className="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors font-jakarta leading-snug">
+                      {proj.title}
+                    </h3>
+                  </Link>
+                  <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">
+                    {proj.description}
+                  </p>
+
+                  {proj.metrics && proj.metrics.length > 0 && (
+                    <div className="grid grid-cols-3 gap-2 py-2.5 px-3 bg-slate-950/60 border border-slate-900 rounded-lg">
+                      {proj.metrics.map((m, mIdx) => (
+                        <div key={mIdx} className="text-center">
+                          <div className="text-[11px] font-extrabold text-brand-cyan">{m.value}</div>
+                          <div className="text-[9px] uppercase tracking-wider text-slate-500">{m.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
+
+                <div className="pt-6 mt-6 border-t border-slate-800/80 space-y-4">
+                  <div className="flex flex-wrap gap-1.5">
+                    {proj.technologies.slice(0, 3).map((t, tIdx) => (
+                      <span key={tIdx} className="bg-black border border-slate-800 px-2 py-0.5 rounded text-[11px] text-slate-350 font-mono">
+                        {t}
+                      </span>
+                    ))}
+                    {proj.technologies.length > 3 && (
+                      <span className="bg-black border border-slate-800 px-2 py-0.5 rounded text-[11px] text-slate-500 font-mono">
+                        +{proj.technologies.length - 3}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1">
+                    {proj.liveUrl && (
+                      <a
+                        href={proj.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-xs font-semibold text-brand-cyan hover:underline"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 mr-1" />
+                        Live Demo
+                      </a>
+                    )}
+                    <Link
+                      href={`/projects/${proj.slug}`}
+                      className="inline-flex items-center text-xs font-bold text-brand-blue group-hover:text-brand-cyan transition-colors ml-auto"
+                    >
+                      <span>Breakdown</span>
+                      <ArrowRight className="w-3.5 h-3.5 ml-1 transform group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
+
               </div>
             ))}
           </div>
