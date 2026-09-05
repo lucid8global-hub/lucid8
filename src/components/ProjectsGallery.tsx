@@ -6,7 +6,6 @@ import {
   ExternalLink, 
   ArrowRight, 
   Search, 
-  Code2, 
   Activity, 
   Database, 
   Cpu, 
@@ -17,7 +16,7 @@ import {
   Sparkles,
   SlidersHorizontal
 } from "lucide-react";
-import { Project, projectCategories, ProjectCategory } from "../data/projects";
+import { Project, projectCategories } from "../data/projects";
 
 function GithubIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
   return (

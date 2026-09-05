@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { 
-  ArrowRight, ShieldAlert, CheckCircle2, Cpu, 
-  Database, Activity, Terminal, Shield 
+  ShieldAlert, CheckCircle2, Activity, Shield 
 } from "lucide-react";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 

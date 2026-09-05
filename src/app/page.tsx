@@ -1,11 +1,37 @@
 import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { 
-  ArrowRight, Shield, Cpu, Code, Database, Cloud, Terminal, 
-  Layers, Users, CheckCircle, Zap, Activity, BookOpen, MessageSquare, ExternalLink 
+  ArrowRight, Shield, Cpu, Code, Database, Cloud, 
+  Layers, Users, CheckCircle, Zap, Activity, MessageSquare, ExternalLink, MapPin, ShoppingBag, GraduationCap 
 } from "lucide-react";
 import ServiceCard from "../components/ServiceCard";
 import { getFeaturedProjects } from "../data/projects";
+import { siteConfig } from "../data/seo/site";
+
+export const metadata: Metadata = {
+  title: "Software & AI Development Company in Kerala | Lucid8 Technologies",
+  description:
+    "Lucid8 Technologies is a software and AI development company in Kerala and Bangalore building custom software, web applications, mobile apps, AI solutions, e-commerce platforms, e-learning systems and digital products.",
+  alternates: {
+    canonical: "/"
+  },
+  openGraph: {
+    title: "Software & AI Development Company in Kerala | Lucid8 Technologies",
+    description:
+      "Lucid8 Technologies is a software and AI development company in Kerala and Bangalore building custom software, web applications, mobile apps, AI solutions, e-commerce platforms, e-learning systems and digital products.",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Software & AI Development Company in Kerala | Lucid8 Technologies",
+    description:
+      "Lucid8 Technologies is a software and AI development company in Kerala and Bangalore building custom software, web applications, mobile apps, AI solutions, e-commerce platforms, e-learning systems and digital products.",
+  }
+};
 
 // Real tech expertise categories
 const techExpertise = [
@@ -106,13 +132,12 @@ export default function Home() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-jakarta">
-              Engineering Secure, <br />
-              <span className="text-gradient">Intelligent & Scalable</span> <br />
-              Digital Solutions
+              Software &amp; AI Solutions <br />
+              <span className="text-gradient">Built for Modern Businesses</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl">
-              Lucid8 helps businesses build secure software, leverage artificial intelligence, strengthen cybersecurity, and deliver reliable digital experiences.
+              Lucid8 Technologies is a software and AI development company in Kerala and Bangalore building custom software, web applications, mobile apps, AI solutions, e-commerce platforms, e-learning systems and digital products.
             </p>
             
 
@@ -142,6 +167,22 @@ export default function Home() {
               </a>
             </div>
 
+            {/* Local SEO Region Presence Quick Links */}
+            <div className="pt-4 border-t border-slate-800/60 flex flex-wrap items-center gap-2 text-xs text-slate-400">
+              <div className="flex items-center text-slate-500 font-semibold mr-1">
+                <MapPin className="w-3.5 h-3.5 text-brand-cyan mr-1" />
+                <span>Serving Businesses In:</span>
+              </div>
+              <Link href="/locations/kerala" className="hover:text-brand-cyan transition-colors bg-slate-900/60 border border-slate-850 hover:border-brand-cyan/40 px-2.5 py-1 rounded-md">Kerala</Link>
+              <Link href="/locations/kochi" className="hover:text-brand-cyan transition-colors bg-slate-900/60 border border-slate-850 hover:border-brand-cyan/40 px-2.5 py-1 rounded-md">Kochi</Link>
+              <Link href="/locations/kannur" className="hover:text-brand-cyan transition-colors bg-slate-900/60 border border-slate-850 hover:border-brand-cyan/40 px-2.5 py-1 rounded-md">Kannur</Link>
+              <Link href="/locations/kozhikode" className="hover:text-brand-cyan transition-colors bg-slate-900/60 border border-slate-850 hover:border-brand-cyan/40 px-2.5 py-1 rounded-md">Kozhikode</Link>
+              <Link href="/locations/thiruvananthapuram" className="hover:text-brand-cyan transition-colors bg-slate-900/60 border border-slate-850 hover:border-brand-cyan/40 px-2.5 py-1 rounded-md">Thiruvananthapuram</Link>
+              <Link href="/locations/thrissur" className="hover:text-brand-cyan transition-colors bg-slate-900/60 border border-slate-850 hover:border-brand-cyan/40 px-2.5 py-1 rounded-md">Thrissur</Link>
+              <Link href="/locations/bangalore" className="hover:text-brand-cyan transition-colors bg-slate-900/60 border border-slate-850 hover:border-brand-cyan/40 px-2.5 py-1 rounded-md">Bangalore</Link>
+              <Link href="/locations/bangalore/indiranagar" className="hover:text-brand-cyan transition-colors bg-slate-900/60 border border-slate-850 hover:border-brand-cyan/40 px-2.5 py-1 rounded-md">Indiranagar</Link>
+            </div>
+
           </div>
         </div>
       </section>
@@ -154,12 +195,12 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
             {[
-              { name: "Software Engineering", icon: <Code className="w-5 h-5 text-brand-white" /> },
-              { name: "AI & ML Integration", icon: <Cpu className="w-5 h-5 text-brand-white" /> },
-              { name: "Cybersecurity Consulting", icon: <Shield className="w-5 h-5 text-brand-white" /> },
-              { name: "Quality Engineering", icon: <Zap className="w-5 h-5 text-white-400" /> },
-              { name: "Cloud & DevOps Ops", icon: <Cloud className="w-5 h-5 text-white-400" /> },
-              { name: "Digital Transformation", icon: <Layers className="w-5 h-5 text-white-400" /> }
+              { name: "Software Development", icon: <Code className="w-5 h-5 text-brand-white" /> },
+              { name: "AI Development", icon: <Cpu className="w-5 h-5 text-brand-white" /> },
+              { name: "Web & Mobile Apps", icon: <Layers className="w-5 h-5 text-brand-white" /> },
+              { name: "SaaS Platforms", icon: <Zap className="w-5 h-5 text-white-400" /> },
+              { name: "Cloud & DevOps", icon: <Cloud className="w-5 h-5 text-white-400" /> },
+              { name: "Cybersecurity & QA", icon: <Shield className="w-5 h-5 text-white-400" /> }
             ].map((pillar, idx) => (
               <div key={idx} className="flex flex-col items-center p-4 bg-slate-900/20 border border-slate-800/40 rounded-xl">
                 <div className="mb-2">{pillar.icon}</div>
@@ -180,17 +221,24 @@ export default function Home() {
                 Delivering Secure, Quality Software Ecosystems
               </h2>
               <p className="text-slate-400 leading-relaxed text-base">
-                Lucid8 is built upon a foundations of security by design, scalable codebase structures, and transparent workflows. We avoid template designs and shortcuts, ensuring that the software we construct supports high concurrency, protects user data, and delivers clear business outcomes.
+                Lucid8 is built upon a foundation of security by design, scalable codebase structures, and transparent workflows. Serving forward-thinking enterprises, mid-market businesses, and technology startups across Kerala, Bangalore (Bengaluru), and international markets, we engineer software that supports high concurrency, protects user data, and delivers measurable business outcomes.
               </p>
               <p className="text-slate-400 leading-relaxed text-base">
-                Whether deploying advanced computer vision architectures, refactoring complex enterprise APIs, running pen-tests, or orchestrating cloud automation pipelines, our focus remains on high-end engineering.
+                Whether deploying custom Generative AI agents, developing Next.js web applications, engineering cross-platform Flutter mobile apps, building multi-tenant SaaS platforms, or launching e-commerce and e-learning portals, our focus remains on high-end engineering discipline.
               </p>
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/about"
                   className="inline-flex items-center text-sm font-bold text-brand-cyan hover:text-brand-cyan/85"
                 >
                   <span>Learn More About Lucid8</span>
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
+                </Link>
+                <Link
+                  href="/locations"
+                  className="inline-flex items-center text-sm font-semibold text-slate-400 hover:text-white"
+                >
+                  <span>Explore Service Locations</span>
                   <ArrowRight className="w-4 h-4 ml-1.5" />
                 </Link>
               </div>
@@ -200,10 +248,10 @@ export default function Home() {
               <h3 className="text-lg font-bold text-white font-jakarta">Our Standard Metrics</h3>
               <div className="space-y-4">
                 {[
+                  { label: "Regional Focus", val: "Kerala & Bangalore (Bengaluru)" },
+                  { label: "Core Competencies", val: "Software, AI, SaaS, Web & Mobile" },
                   { label: "Security-First Integration", val: "Continuous OWASP Code Reviews" },
-                  { label: "AI Framework Focus", val: "Predictive Analytics & Computer Vision" },
-                  { label: "Software Standards", val: "Clean Code & Automated Pipelines" },
-                  { label: "Lead Contact Options", val: "Fast WhatsApp Consulting" }
+                  { label: "Direct Communication", val: "Fast WhatsApp & Slack Engineering Access" }
                 ].map((metric, idx) => (
                   <div key={idx} className="border-b border-slate-800/80 pb-3 last:border-0 last:pb-0">
                     <p className="text-xs text-slate-500 font-medium">{metric.label}</p>
@@ -225,34 +273,52 @@ export default function Home() {
               Explore Our Core Engineering Divisions
             </h2>
             <p className="text-slate-400 text-sm md:text-base">
-              Every major category features its own dedicated strategy, roadmap, and technology stack.
+              Custom software, artificial intelligence, SaaS architectures, mobile applications, and cloud systems engineered for scale.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ServiceCard 
               title="Custom Software Development"
-              description="Enterprise system development, SaaS applications, custom architectures, and database structures."
+              description="Enterprise system development, custom business software, scalable architectures, and database structures."
               href="/services/software-development"
               icon={<Code className="w-5 h-5" />}
             />
             <ServiceCard 
+              title="AI Development & Automation"
+              description="Generative AI, autonomous agents, predictive modeling, data pipelines, and intelligent workflow automation."
+              href="/services/ai-development"
+              icon={<Cpu className="w-5 h-5" />}
+            />
+            <ServiceCard 
               title="Web Application Development"
-              description="High-performance client dashboards, web applications, and corporate digital layouts in Next.js."
+              description="High-performance client dashboards, corporate portals, and modern Next.js web applications."
               href="/services/web-development"
               icon={<Layers className="w-5 h-5" />}
             />
             <ServiceCard 
-              title="Mobile Application Development"
+              title="Mobile App Development"
               description="iOS, Android, and cross-platform mobile apps with secure APIs built using Flutter."
               href="/services/mobile-app-development"
               icon={<Activity className="w-5 h-5" />}
             />
             <ServiceCard 
-              title="AI & Machine Learning"
-              description="Predictive modeling, data classification pipelines, and advanced computer vision applications."
-              href="/services/ai-machine-learning"
-              icon={<Cpu className="w-5 h-5" />}
+              title="SaaS Application Development"
+              description="Multi-tenant cloud architectures, subscription billing, automated onboarding, and scalable APIs."
+              href="/services/saas-development"
+              icon={<Zap className="w-5 h-5" />}
+            />
+            <ServiceCard 
+              title="E-Commerce Development"
+              description="Multi-vendor marketplaces, custom online storefronts, and conversion-optimized checkout experiences."
+              href="/services/ecommerce-development"
+              icon={<ShoppingBag className="w-5 h-5" />}
+            />
+            <ServiceCard 
+              title="E-Learning Platform Development"
+              description="Custom Learning Management Systems (LMS), video course streaming, quizzes, and digital certificates."
+              href="/services/e-learning-development"
+              icon={<GraduationCap className="w-5 h-5" />}
             />
             <ServiceCard 
               title="Cybersecurity Strategy"
@@ -261,28 +327,10 @@ export default function Home() {
               icon={<Shield className="w-5 h-5" />}
             />
             <ServiceCard 
-              title="Vulnerability Security Testing"
-              description="OWASP application pen-testing, API security audits, and configuration validation reviews."
-              href="/services/security-testing"
-              icon={<Terminal className="w-5 h-5" />}
-            />
-            <ServiceCard 
               title="Software Testing & QA"
               description="Quality engineering, functional testing, API testing, and test automation frameworks."
               href="/services/software-testing"
               icon={<CheckCircle className="w-5 h-5" />}
-            />
-            <ServiceCard 
-              title="Cloud & DevOps Engineering"
-              description="AWS deployments, CI/CD automated release schedules, and infrastructure-as-code configurations."
-              href="/services/cloud-devops"
-              icon={<Cloud className="w-5 h-5" />}
-            />
-            <ServiceCard 
-              title="API & Backend Systems"
-              description="Fast, robust APIs, database structures, OAuth security integrations, and scalable microservices."
-              href="/services/api-backend-development"
-              icon={<Database className="w-5 h-5" />}
             />
           </div>
 
@@ -291,7 +339,7 @@ export default function Home() {
               href="/services"
               className="inline-flex items-center px-5 py-2.5 bg-slate-900 border border-slate-800 text-sm font-semibold text-slate-200 hover:text-white rounded-lg transition-colors"
             >
-              <span>View All 11 Services</span>
+              <span>Explore All Service Capabilities</span>
               <ArrowRight className="w-4 h-4 ml-1.5" />
             </Link>
           </div>
@@ -584,10 +632,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight font-jakarta">
             Have a technology challenge? <br />
-            <span className="text-gradient">Let's build the solution.</span>
+            <span className="text-gradient">Let&apos;s build the solution.</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Partner with Lucid8's consulting engineers to audit systems, design artificial intelligence frameworks, optimize cloud architecture, and build custom web/mobile platforms.
+            Partner with Lucid8&apos;s consulting engineers to audit systems, design artificial intelligence frameworks, optimize cloud architecture, and build custom web/mobile platforms.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Link

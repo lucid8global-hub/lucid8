@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { MessageSquare, Mail, Shield, ShieldCheck } from "lucide-react";
+import { MessageSquare, Mail, ShieldCheck } from "lucide-react";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import ContactForm from "../../components/ContactForm";
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
             Start a Conversation
           </h1>
           <p className="text-base sm:text-lg text-slate-400 leading-relaxed max-w-3xl">
-            Partner with Lucid8's consulting engineers to audit systems, design artificial intelligence frameworks, optimize cloud architecture, and build custom web/mobile platforms.
+            Partner with Lucid8&apos;s consulting engineers to audit systems, design artificial intelligence frameworks, optimize cloud architecture, and build custom web/mobile platforms.
           </p>
         </div>
 

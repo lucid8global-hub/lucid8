@@ -1,93 +1,29 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Clock, Calendar, Users } from "lucide-react";
+import { ArrowRight, Clock, Users, Sparkles } from "lucide-react";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import { getAllInsights } from "../../data/seo/insights";
+import { siteConfig } from "../../data/seo/site";
 
 export const metadata: Metadata = {
-  title: "Insights & Technical Analysis | Lucid8 Technologies",
-  description: "Read technical articles on cybersecurity, AI, software engineering, cloud architecture, API design, and QA testing written by Lucid8's engineers.",
+  title: "Software & AI Insights, Guides & Analysis | Lucid8 Technologies",
+  description: "Read in-depth engineering articles on custom software development, AI automation, SaaS costs, e-learning platforms, web development, and cybersecurity in Kerala and Bangalore.",
   alternates: {
     canonical: "/insights"
+  },
+  openGraph: {
+    title: "Software & AI Insights, Guides & Analysis | Lucid8 Technologies",
+    description: "Read in-depth engineering articles on custom software development, AI automation, SaaS costs, e-learning platforms, web development, and cybersecurity.",
+    url: `${siteConfig.url}/insights`,
+    siteName: siteConfig.name,
+    type: "website"
   }
 };
 
-const insightsList = [
-  {
-    title: "Why Secure Software Development Matters for Modern Businesses",
-    category: "Cybersecurity",
-    slug: "secure-software-development",
-    author: "Lucid8 Engineering Group",
-    date: "Aug 12, 2026",
-    readingTime: "5 min read",
-    summary: "Exploring the financial and structural risks of post-release vulnerability patches and the benefits of integrating security tools directly into the development cycle."
-  },
-  {
-    title: "How AI Is Transforming Business Automation",
-    category: "AI & Innovation",
-    slug: "ai-business-automation",
-    author: "Lucid8 AI Specialists",
-    date: "Aug 08, 2026",
-    readingTime: "6 min read",
-    summary: "Moving beyond simple chatbots: integrating predictive analytics, classification systems, and machine learning models to streamline operational workflows."
-  },
-  {
-    title: "Web Application Security Best Practices",
-    category: "Security Testing",
-    slug: "web-app-security-best-practices",
-    author: "Lucid8 Auditing Unit",
-    date: "Jul 29, 2026",
-    readingTime: "8 min read",
-    summary: "A practical guide to securing web inputs, enforcing cross-origin parameters, sanitizing forms, and protecting customer session tokens."
-  },
-  {
-    title: "Why Software Testing Should Start Early",
-    category: "Software Testing",
-    slug: "software-testing-early-start",
-    author: "Lucid8 Quality Engineers",
-    date: "Jul 15, 2026",
-    readingTime: "5 min read",
-    summary: "How shifting testing left helps teams identify bugs early, reduce overall development costs, and speed up product launch schedules."
-  },
-  {
-    title: "Building Scalable Web Applications with Modern Architecture",
-    category: "Software Engineering",
-    slug: "building-scalable-web-applications",
-    author: "Lucid8 Core Architects",
-    date: "Jul 02, 2026",
-    readingTime: "7 min read",
-    summary: "Key architectural decisions for modern web applications: server-side rendering, caching layers, and decoupled API microservices."
-  },
-  {
-    title: "API Security Fundamentals",
-    category: "API & Backend",
-    slug: "api-security-fundamentals",
-    author: "Lucid8 Backend Engineers",
-    date: "Jun 18, 2026",
-    readingTime: "6 min read",
-    summary: "How to protect public-facing APIs from data scraping, parameter manipulation, rate breaches, and unauthorized access."
-  },
-  {
-    title: "Cloud Security Best Practices",
-    category: "Cloud & DevOps",
-    slug: "cloud-security-best-practices",
-    author: "Lucid8 DevOps Unit",
-    date: "Jun 04, 2026",
-    readingTime: "7 min read",
-    summary: "Setting up secure cloud environments: isolating networks, managing access controls, and auditing database ports on AWS."
-  },
-  {
-    title: "The Role of AI in Software Testing",
-    category: "AI & Software Testing",
-    slug: "ai-role-software-testing",
-    author: "Lucid8 Innovation Team",
-    date: "May 20, 2026",
-    readingTime: "6 min read",
-    summary: "Leveraging machine learning algorithms to automate test path generation, analyze logs, and identify potential bugs during code changes."
-  }
-];
-
 export default function InsightsPage() {
+  const articles = getAllInsights();
+
   return (
     <div className="relative">
       {/* Background patterns */}
@@ -100,20 +36,24 @@ export default function InsightsPage() {
 
         {/* Hero Section */}
         <div className="py-12 md:py-20 space-y-6 max-w-4xl">
-          <span className="text-xs font-bold uppercase tracking-wider text-brand-purple">Company Insights</span>
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-purple/10 border border-brand-purple/20">
+            <Sparkles className="w-3.5 h-3.5 text-brand-purple" />
+            <span className="text-xs font-bold uppercase tracking-wider text-brand-purple">Engineering Knowledge &amp; Analysis</span>
+          </div>
+
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight font-jakarta">
-            Technical Publications & Articles
+            Software &amp; AI Engineering Insights
           </h1>
           <p className="text-base sm:text-lg text-slate-400 leading-relaxed max-w-3xl">
-            Read B2B articles and engineering analysis on cybersecurity strategy, AI models, custom software, and quality testing. Written for technology leaders and architects.
+            Practical guides, cost analyses, architecture breakdowns, and technology insights for founders, CTOs, and business leaders building software and AI systems in Kerala, Bangalore, and globally.
           </p>
         </div>
 
         {/* Article Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {insightsList.map((art, idx) => (
+          {articles.map((art) => (
             <Link
-              key={idx}
+              key={art.slug}
               href={`/insights/${art.slug}`}
               className="group flex flex-col justify-between bg-[#0a0a0a]/20 border border-slate-800/80 rounded-2xl p-6 hover:border-brand-purple/40 hover:bg-[#0a0a0a]/40 hover:shadow-xl hover:shadow-brand-purple/5 transition-all duration-300 h-full"
             >

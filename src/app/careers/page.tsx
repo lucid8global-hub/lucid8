@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Shield, Zap, Cpu, Users, ArrowRight } from "lucide-react";
+import { Shield, Zap, Cpu, ArrowRight } from "lucide-react";
 import Breadcrumbs from "../../components/Breadcrumbs";
 
 export const metadata: Metadata = {
@@ -122,7 +122,7 @@ export default function CareersPage() {
 
         {/* Speculative Application Block */}
         <div className="mt-12 p-8 bg-[#0a0a0a]/20 border border-slate-850 rounded-2xl text-center space-y-4 max-w-3xl mx-auto">
-          <h3 className="text-lg font-bold text-white font-jakarta">Don't see a matching position?</h3>
+          <h3 className="text-lg font-bold text-white font-jakarta">Don&apos;t see a matching position?</h3>
           <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
             We are always looking for skilled developers, cybersecurity analysts, and quality engineers. Send your resume and technical profile to <a href="mailto:lucid8global@gmail.com" className="text-brand-cyan hover:underline">lucid8global@gmail.com</a>.
           </p>

@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
+import JsonLd, { getOrganizationSchema, getWebSiteSchema } from "../components/JsonLd";
+import { siteConfig } from "../data/seo/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,26 +14,26 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: {
-    default: "Lucid8 Technologies | Secure, Intelligent & Scalable Digital Solutions",
+    default: "Software & AI Development Company in Kerala | Lucid8 Technologies",
     template: "%s | Lucid8 Technologies"
   },
-  description: "Lucid8 helps businesses build secure software, leverage artificial intelligence, strengthen cybersecurity, and deliver reliable digital experiences.",
-  metadataBase: new URL("https://lucid8.in"),
+  description: siteConfig.description,
+  metadataBase: new URL(siteConfig.url),
   alternates: {
     canonical: "/"
   },
   openGraph: {
-    title: "Lucid8 Technologies | Secure, Intelligent & Scalable Digital Solutions",
-    description: "Lucid8 helps businesses build secure software, leverage artificial intelligence, strengthen cybersecurity, and deliver reliable digital experiences.",
-    url: "https://lucid8.in",
-    siteName: "Lucid8 Technologies",
+    title: "Software & AI Development Company in Kerala | Lucid8 Technologies",
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lucid8 Technologies | Secure, Intelligent & Scalable Digital Solutions",
-    description: "Lucid8 helps businesses build secure software, leverage artificial intelligence, strengthen cybersecurity, and deliver reliable digital experiences.",
+    title: "Software & AI Development Company in Kerala | Lucid8 Technologies",
+    description: siteConfig.description,
   },
 };
 
@@ -42,6 +44,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased scroll-smooth`}>
+      <head>
+        <JsonLd schema={[getOrganizationSchema(), getWebSiteSchema()]} />
+      </head>
       <body className="min-h-full flex flex-col bg-[#000000] text-slate-200 selection:bg-brand-cyan/30 selection:text-white">
         <Navbar />
         <main className="flex-grow">
@@ -53,3 +58,4 @@ export default function RootLayout({
     </html>
   );
 }
+

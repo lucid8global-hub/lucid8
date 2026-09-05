@@ -15,12 +15,12 @@ import {
   Cloud, 
   Cpu, 
   FileText, 
-  Calendar, 
-  Building2, 
-  Share2 
+  Calendar 
 } from "lucide-react";
 import Breadcrumbs from "../../../components/Breadcrumbs";
+import JsonLd, { getProjectSchema, getBreadcrumbListSchema } from "../../../components/JsonLd";
 import { getAllProjects, getProjectBySlug } from "../../../data/projects";
+import { siteConfig } from "../../../data/seo/site";
 
 function GithubIcon({ className = "w-4 h-4 mr-2" }: { className?: string }) {
   return (
@@ -50,10 +50,22 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} | Project Showcase | Lucid8 Technologies`,
-    description: project.description,
+    title: `${project.title} | Software & AI Project Showcase | Lucid8 Technologies`,
+    description: project.fullDescription || project.description,
     alternates: {
       canonical: `/projects/${slug}`
+    },
+    openGraph: {
+      title: `${project.title} | Project Showcase | Lucid8 Technologies`,
+      description: project.fullDescription || project.description,
+      url: `${siteConfig.url}/projects/${slug}`,
+      siteName: siteConfig.name,
+      type: "website"
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Project Showcase | Lucid8 Technologies`,
+      description: project.fullDescription || project.description
     }
   };
 }
@@ -72,6 +84,12 @@ export default async function ProjectDetailPage({
 
   const allProjects = getAllProjects();
   const otherProjects = allProjects.filter((p) => p.slug !== project.slug).slice(0, 2);
+
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "Projects", url: "/projects" },
+    { name: project.title, url: `/projects/${project.slug}` }
+  ];
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
@@ -94,6 +112,20 @@ export default async function ProjectDetailPage({
 
   return (
     <div className="relative">
+      {/* JSON-LD Structured Data */}
+      <JsonLd
+        schema={[
+          getProjectSchema({
+            name: project.title,
+            description: project.fullDescription || project.description,
+            url: `/projects/${project.slug}`,
+            category: project.category,
+            technologies: project.technologies
+          }),
+          getBreadcrumbListSchema(breadcrumbItems)
+        ]}
+      />
+
       {/* Background patterns */}
       <div className="absolute top-0 left-0 right-0 h-[500px] bg-grid-pattern opacity-60 pointer-events-none" />
 

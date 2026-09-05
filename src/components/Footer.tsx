@@ -1,32 +1,36 @@
 import React from "react";
 import Link from "next/link";
-import { MessageSquare, Mail, ShieldAlert } from "lucide-react";
+import { MessageSquare, Mail } from "lucide-react";
 
 export default function Footer() {
   const serviceLinks = [
     { name: "Software Development", href: "/services/software-development" },
-    { name: "AI & Machine Learning", href: "/services/ai-machine-learning" },
-    { name: "Cybersecurity", href: "/services/cybersecurity" },
-    { name: "Security Testing", href: "/services/security-testing" },
-    { name: "Software Testing", href: "/services/software-testing" },
-    { name: "Cloud & DevOps", href: "/services/cloud-devops" },
+    { name: "AI Development", href: "/services/ai-development" },
+    { name: "Web Development", href: "/services/web-development" },
+    { name: "Mobile App Development", href: "/services/mobile-app-development" },
+    { name: "Custom Software", href: "/services/custom-software" },
+    { name: "SaaS Development", href: "/services/saas-development" },
+    { name: "E-Commerce Development", href: "/services/ecommerce-development" },
+    { name: "E-Learning Platforms", href: "/services/e-learning-development" },
   ];
 
-  const industryLinks = [
-    { name: "Fintech", href: "/industries/fintech" },
-    { name: "Healthcare", href: "/industries/healthcare" },
-    { name: "Education", href: "/industries/education" },
-    { name: "E-Commerce", href: "/industries/ecommerce" },
-    { name: "Startups", href: "/industries/startups" },
-    { name: "Enterprises", href: "/industries/enterprises" },
+  const locationLinks = [
+    { name: "Kerala", href: "/locations/kerala" },
+    { name: "Kochi", href: "/locations/kochi" },
+    { name: "Kannur", href: "/locations/kannur" },
+    { name: "Kozhikode", href: "/locations/kozhikode" },
+    { name: "Thiruvananthapuram", href: "/locations/thiruvananthapuram" },
+    { name: "Thrissur", href: "/locations/thrissur" },
+    { name: "Bangalore", href: "/locations/bangalore" },
+    { name: "Indiranagar", href: "/locations/bangalore/indiranagar" },
   ];
 
   const companyLinks = [
     { name: "About Us", href: "/about" },
     { name: "Projects & Portfolio", href: "/projects" },
     { name: "Case Studies", href: "/case-studies" },
-    { name: "Careers", href: "/careers" },
     { name: "Insights & Articles", href: "/insights" },
+    { name: "Careers", href: "/careers" },
     { name: "Contact Expert", href: "/contact" },
   ];
 
@@ -43,7 +47,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              Lucid8 is an engineering-first technology solutions provider. We build secure, custom software architectures, design AI/ML applications, deploy robust Cloud operations, and audit cybersecurity infrastructures.
+              Lucid8 Technologies is a software and AI development company in Kerala and Bangalore building custom software, web applications, mobile apps, AI solutions, e-commerce platforms, e-learning systems and digital products.
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
@@ -88,13 +92,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2: Industries */}
+          {/* Column 2: Locations */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-white font-jakarta mb-5">
-              Industries
+              Locations
             </h3>
             <ul className="space-y-3">
-              {industryLinks.map((link, idx) => (
+              {locationLinks.map((link, idx) => (
                 <li key={idx}>
                   <Link
                     href={link.href}
@@ -131,7 +135,7 @@ export default function Footer() {
         {/* Bottom Panel */}
         <div className="mt-16 pt-8 border-t border-slate-800/60 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-xs text-slate-500">
-            © 2026 Lucid8 Technologies. All rights reserved.
+            © 2026 Lucid8 Technologies. All rights reserved. Software &amp; AI Development in Kerala &amp; Bangalore.
           </div>
           <div className="flex space-x-6 text-xs text-slate-500">
             <Link href="/privacy-policy" className="hover:text-slate-350 transition-colors">
@@ -139,6 +143,9 @@ export default function Footer() {
             </Link>
             <Link href="/terms-of-service" className="hover:text-slate-350 transition-colors">
               Terms of Service
+            </Link>
+            <Link href="/sitemap.xml" className="hover:text-slate-350 transition-colors">
+              Sitemap
             </Link>
           </div>
         </div>

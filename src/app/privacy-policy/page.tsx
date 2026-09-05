@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-3">
             <h2 className="text-lg font-bold text-white font-jakarta">1. Overview</h2>
             <p>
-              Lucid8 Technologies (\"we,\" \"us,\" or \"our\") is committed to protecting the privacy of our website visitors and clients. This Privacy Policy describes how we collect, process, and secure the information you provide when using our website (<a href="https://lucid8.in" className="text-brand-cyan hover:underline">lucid8.in</a>) and our inquiry forms.
+              Lucid8 Technologies (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting the privacy of our website visitors and clients. This Privacy Policy describes how we collect, process, and secure the information you provide when using our website (<a href="https://lucid8.in" className="text-brand-cyan hover:underline">lucid8.in</a>) and our inquiry forms.
             </p>
           </section>
 

@@ -2,63 +2,68 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { 
-  Code, Cpu, Shield, CheckCircle, Cloud, ArrowRight, 
-  Terminal, Database, Activity, Layers, Server, Settings, Zap 
+  Code, Cpu, Shield, ArrowRight, Layers 
 } from "lucide-react";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import { siteConfig } from "../../data/seo/site";
 
 export const metadata: Metadata = {
-  title: "Our Services | Software, AI, Cybersecurity & Quality Engineering",
-  description: "Browse Lucid8's core technical offerings across Software Engineering, AI & Machine Learning, Cybersecurity Consulting, Quality Engineering (QA), and Cloud operations.",
+  title: "Software & AI Development Services | Lucid8 Technologies",
+  description: "Explore Lucid8's core software engineering services: custom software, AI development, web applications, mobile apps, SaaS, e-commerce, LMS platforms, and cybersecurity.",
   alternates: {
     canonical: "/services"
+  },
+  openGraph: {
+    title: "Software & AI Development Services | Lucid8 Technologies",
+    description: "Explore Lucid8's core software engineering services: custom software, AI development, web applications, mobile apps, SaaS, e-commerce, LMS platforms, and cybersecurity.",
+    url: `${siteConfig.url}/services`,
+    siteName: siteConfig.name,
+    type: "website"
   }
 };
 
 const serviceGroups = [
   {
-    title: "Software Engineering",
-    desc: "Custom application design, web apps, mobile systems, and database interfaces built for reliability and throughput.",
+    title: "Software & Product Engineering",
+    desc: "Custom business software, SaaS architectures, enterprise tools, and database layers engineered for scalability and high throughput.",
     icon: <Code className="w-6 h-6 text-brand-blue" />,
     items: [
-      { name: "Custom Software Development", href: "/services/software-development", desc: "Tailored SaaS platforms, business portals, and custom system architectures." },
-      { name: "Web Application Development", href: "/services/web-development", desc: "High-performance client dashboards, corporate sites, and modern Next.js integrations." },
-      { name: "Mobile App Development", href: "/services/mobile-app-development", desc: "Interactive iOS, Android, and cross-platform layouts written in Flutter." },
-      { name: "API & Backend Development", href: "/services/api-backend-development", desc: "Secure database design, microservices, Rest APIs, and OAuth integrations." }
+      { name: "Software Development", href: "/services/software-development", desc: "Custom business software, enterprise applications, and scalable backend systems in Kerala & Bangalore." },
+      { name: "Custom Software", href: "/services/custom-software", desc: "Bespoke business platforms, operational portals, and workflow systems tailored to exact requirements." },
+      { name: "SaaS Development", href: "/services/saas-development", desc: "Multi-tenant cloud architectures with subscription billing, user roles, and high concurrency." },
+      { name: "API & Backend Development", href: "/services/api-backend-development", desc: "Secure database design, microservices, REST APIs, and OAuth integrations." }
     ]
   },
   {
-    title: "Artificial Intelligence",
-    desc: "Leveraging model architectures, computer vision systems, and intelligent scripts to automate and predict outcomes.",
+    title: "Artificial Intelligence & Automation",
+    desc: "Generative AI applications, autonomous agents, computer vision pipelines, and intelligent business process automation.",
     icon: <Cpu className="w-6 h-6 text-brand-cyan" />,
     items: [
-      { name: "AI & Machine Learning", href: "/services/ai-machine-learning", desc: "Data classification, prediction modeling, computer vision, and neural network applications." },
+      { name: "AI Development", href: "/services/ai-development", desc: "Generative AI, autonomous agents, custom chatbots, and intelligent business automation in Kerala & Bangalore." },
+      { name: "AI & Machine Learning", href: "/services/ai-machine-learning", desc: "Data classification, predictive modeling, computer vision, and neural network applications." },
       { name: "Automation Solutions", href: "/services/automation-solutions", desc: "Workflows automation, script setups, data pipelines, and internal tools optimizations." },
       { name: "Digital Transformation", href: "/services/digital-transformation", desc: "Modernizing legacy structures, migrating systems, and designing data-driven strategies." }
     ]
   },
   {
-    title: "Cybersecurity & Strategy",
-    desc: "Defending digital assets via proactive architecture audits, OWASP validations, and threat mitigation models.",
-    icon: <Shield className="w-6 h-6 text-brand-purple" />,
+    title: "Web & Mobile Applications",
+    desc: "Sub-second client dashboards, high-converting storefronts, interactive learning portals, and native mobile apps.",
+    icon: <Layers className="w-6 h-6 text-brand-purple" />,
+    items: [
+      { name: "Web Application Development", href: "/services/web-development", desc: "High-performance client dashboards, corporate sites, and modern Next.js web applications." },
+      { name: "Mobile App Development", href: "/services/mobile-app-development", desc: "Interactive iOS, Android, and cross-platform mobile apps written in Flutter." },
+      { name: "E-Commerce Development", href: "/services/ecommerce-development", desc: "Multi-vendor marketplaces, custom online stores, and WooCommerce platforms." },
+      { name: "E-Learning Platform Development", href: "/services/e-learning-development", desc: "Modern Learning Management Systems (LMS), video course delivery, and student portals." }
+    ]
+  },
+  {
+    title: "Cybersecurity, QA & Cloud Infrastructure",
+    desc: "Defending digital assets, ensuring zero-bug releases, and automating reliable cloud deployment pipelines.",
+    icon: <Shield className="w-6 h-6 text-amber-400" />,
     items: [
       { name: "Cybersecurity Consulting", href: "/services/cybersecurity", desc: "Defensive planning, risk assessments, secure SDLC setups, and compliance consulting." },
-      { name: "Security & Penetration Testing", href: "/services/security-testing", desc: "Web app audits, API threat reviews, credential tests, and vulnerability reporting." }
-    ]
-  },
-  {
-    title: "Quality Engineering & QA",
-    desc: "Ensuring zero-bug interfaces, sub-second API tests, and continuous integration validations.",
-    icon: <CheckCircle className="w-6 h-6 text-amber-400" />,
-    items: [
-      { name: "Software Testing & QA", href: "/services/software-testing", desc: "QA automation, manual regressions, API checking, and load stress validations." }
-    ]
-  },
-  {
-    title: "Cloud & DevOps Operations",
-    desc: "Automating software release pipelines, running Docker environments, and securing AWS configurations.",
-    icon: <Cloud className="w-6 h-6 text-sky-400" />,
-    items: [
+      { name: "Security & Penetration Testing", href: "/services/security-testing", desc: "Web app audits, API threat reviews, credential tests, and vulnerability reporting." },
+      { name: "Software Testing & QA", href: "/services/software-testing", desc: "QA automation, manual regressions, API checking, and load stress validations." },
       { name: "Cloud & DevOps Engineering", href: "/services/cloud-devops", desc: "CI/CD automations, infrastructure-as-code scripts, and AWS scaling setups." }
     ]
   }
@@ -79,10 +84,10 @@ export default function ServicesPage() {
         <div className="py-12 md:py-20 space-y-6 max-w-4xl">
           <span className="text-xs font-bold uppercase tracking-wider text-brand-cyan">Engineering Divisions</span>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight font-jakarta">
-            Capabilities & Service Architecture
+            Software &amp; AI Service Architecture
           </h1>
           <p className="text-base sm:text-lg text-slate-400 leading-relaxed max-w-3xl">
-            We deliver disciplined software solutions structured across five core divisions. Explore our individual capabilities and contact our engineers to discuss custom solutions.
+            Lucid8 Technologies provides structured software development, AI solutions, web applications, mobile apps, SaaS, and cybersecurity engineering for businesses across Kerala, Bangalore, and global markets.
           </p>
         </div>
 
@@ -98,7 +103,7 @@ export default function ServicesPage() {
                     {group.icon}
                   </div>
                   <h2 className="text-2xl font-bold text-white font-jakarta">{group.title}</h2>
-                  <p className="text-sm text-slate-450 leading-relaxed max-w-sm">{group.desc}</p>
+                  <p className="text-sm text-slate-400 leading-relaxed max-w-sm">{group.desc}</p>
                 </div>
 
                 {/* Column right - Sub items Grid */}
@@ -116,7 +121,7 @@ export default function ServicesPage() {
                         {item.desc}
                       </p>
                       <div className="text-xs font-semibold text-brand-blue group-hover:text-brand-cyan flex items-center mt-4">
-                        <span>View strategy & details</span>
+                        <span>View service capabilities</span>
                         <ArrowRight className="w-3.5 h-3.5 ml-1 transform group-hover:translate-x-1 transition-transform" />
                       </div>
                     </Link>
@@ -130,14 +135,14 @@ export default function ServicesPage() {
 
         {/* Bottom Panel */}
         <div className="mt-20 p-8 bg-[#0a0a0a]/10 border border-slate-800 rounded-2xl text-center space-y-6 max-w-4xl mx-auto">
-          <h3 className="text-xl font-bold text-white font-jakarta">Require a specialized or cross-functional stack?</h3>
-          <p className="text-sm text-slate-405 max-w-xl mx-auto leading-relaxed">
-            Our consulting architects frequently assemble custom project teams containing AI specialists, pen-testers, and cloud deployment experts to address complex needs.
+          <h3 className="text-xl font-bold text-white font-jakarta">Require a custom or cross-functional stack?</h3>
+          <p className="text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
+            Our consulting engineers assemble dedicated project teams containing software architects, AI engineers, and cloud specialists to address complex technical goals.
           </p>
           <div>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-brand-blue to-brand-cyan hover:opacity-95 transition-all duration-300"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-brand-blue to-brand-cyan hover:opacity-95 transition-all duration-300 shadow-lg shadow-brand-blue/20"
             >
               Consult with an Architect
               <ArrowRight className="w-4 h-4 ml-2" />

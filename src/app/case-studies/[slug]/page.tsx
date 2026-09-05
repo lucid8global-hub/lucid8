@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, Database, Activity, CheckCircle2, AlertTriangle, Shield } from "lucide-react";
+import { ArrowRight, CheckCircle2, AlertTriangle } from "lucide-react";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 
 interface CaseStudyData {

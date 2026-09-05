@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Shield, Eye, Target, Zap, Layout, Code, Activity } from "lucide-react";
+import { Shield, Eye, Target, Zap, Layout, Code } from "lucide-react";
 import Breadcrumbs from "../../components/Breadcrumbs";
 
 export const metadata: Metadata = {

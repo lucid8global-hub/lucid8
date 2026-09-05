@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Shield, Database, Cpu, Activity } from "lucide-react";
+import { ArrowRight, Database, Activity } from "lucide-react";
 import Breadcrumbs from "../../components/Breadcrumbs";
 
 export const metadata: Metadata = {

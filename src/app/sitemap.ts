@@ -1,13 +1,18 @@
 import { MetadataRoute } from "next";
 import { getAllProjects } from "../data/projects";
+import { getAllServices } from "../data/seo/services";
+import { getAllLocations } from "../data/seo/locations";
+import { getAllInsights } from "../data/seo/insights";
+import { siteConfig } from "../data/seo/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://lucid8.in";
+  const baseUrl = siteConfig.url;
 
   const staticPages = [
     "",
     "/about",
     "/services",
+    "/locations",
     "/projects",
     "/case-studies",
     "/insights",
@@ -15,20 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/privacy-policy",
     "/terms-of-service",
-  ];
-
-  const servicesSlugs = [
-    "software-development",
-    "web-development",
-    "mobile-app-development",
-    "ai-machine-learning",
-    "cloud-devops",
-    "cybersecurity",
-    "security-testing",
-    "software-testing",
-    "api-backend-development",
-    "automation-solutions",
-    "digital-transformation",
   ];
 
   const industriesSlugs = [
@@ -45,28 +36,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "telehealth-scheduling-core",
   ];
 
-  const insightsSlugs = [
-    "secure-software-development",
-    "ai-business-automation",
-    "web-app-security-best-practices",
-    "software-testing-early-start",
-    "building-scalable-web-applications",
-    "api-security-fundamentals",
-    "cloud-security-best-practices",
-    "ai-role-software-testing",
-  ];
-
+  const services = getAllServices();
+  const locations = getAllLocations();
   const projects = getAllProjects();
+  const insights = getAllInsights();
 
   const staticUrls = staticPages.map((page) => ({
     url: `${baseUrl}${page}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: page === "" ? 1.0 : (page === "/projects" ? 0.85 : 0.8),
+    priority: page === "" ? 1.0 : (page === "/projects" || page === "/services" || page === "/locations" ? 0.9 : 0.8),
   }));
 
-  const serviceUrls = servicesSlugs.map((slug) => ({
-    url: `${baseUrl}/services/${slug}`,
+  const serviceUrls = services.map((service) => ({
+    url: `${baseUrl}/services/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
+  const locationUrls = locations.map((loc) => ({
+    url: `${baseUrl}/locations/${loc.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
+  const projectUrls = projects.map((proj) => ({
+    url: `${baseUrl}/projects/${proj.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.75,
+  }));
+
+  const insightUrls = insights.map((article) => ({
+    url: `${baseUrl}/insights/${article.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.7,
@@ -79,13 +83,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const projectUrls = projects.map((proj) => ({
-    url: `${baseUrl}/projects/${proj.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.7,
-  }));
-
   const caseUrls = caseStudiesSlugs.map((slug) => ({
     url: `${baseUrl}/case-studies/${slug}`,
     lastModified: new Date(),
@@ -93,12 +90,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  const insightUrls = insightsSlugs.map((slug) => ({
-    url: `${baseUrl}/insights/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.5,
-  }));
-
-  return [...staticUrls, ...serviceUrls, ...industryUrls, ...projectUrls, ...caseUrls, ...insightUrls];
+  return [
+    ...staticUrls,
+    ...serviceUrls,
+    ...locationUrls,
+    ...projectUrls,
+    ...insightUrls,
+    ...industryUrls,
+    ...caseUrls
+  ];
 }
